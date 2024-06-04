@@ -144,6 +144,11 @@ footer>img{
     align-content: center;
     margin: 12px;
 }
+.tycEnlace{
+    color: white;
+    text-decoration: underline;
+    
+}
 .elijaField>div{
     display: flex;
     align-content: space-between;

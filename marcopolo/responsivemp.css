@@ -1,34 +1,64 @@
-/* Estilos para smartphones en modo vertical */
-@media only screen and (max-width: 480px) {
-  .row>:first-child{
-    padding: 0%;
+@media only screen and (max-width: 896px) {
+
+  body {
+     
+      padding: 138px 0;
+      background-size: cover;
   }
-  footer {
-    
-margin-top: 60px;
-}
-.checkbox-container>label {
-  font-size: 12px;
-  color: #ffffff;
-  margin: 16px -15px 20px 0px;
-  text-decoration: 2px underline;
-}
+    .logoCamp {
+        width: 356px;
+    }
+    p{
+        font-size: 15px;
+    }
+    h2{
+        font-size: 36px;
+        color: #264d07;
+    }
+    footer{
+        margin-top: 50px;
+    }
+  }
+  @media only screen and (max-width: 414px) {
 
-}
-
-/* Estilos para smartphones en modo horizontal */
-@media only screen and (min-width: 481px) and (max-width: 767px) {
-    /* Tus estilos aquÃ­ */
-}
-
-/* Estilos para smartphones en modo horizontal o vertical */
-@media only screen and (min-width: 767px) {
+    body {
     
-  footer {
-    
-    margin-top: 11px; 
+      padding: 122px 0;
+      background-size: cover;
+  }
+    .logoCamp {
+        width: 356px;
+    }
+    p{
+        font-size: 15px;
+    }
+    h2{
+        font-size: 36px;
+        color: #264d07;
+    }
+    footer{
+        margin-top: 50px;
+    }
+  
+  
 }
-h2{
-  color: white;
-}
+@media only screen and (max-width: 375px) {
+
+  body {
+
+    padding: 62px 0;
+    background-size: cover;
+  }
+  .logoCamp {
+      width: 299px;
+  }
+  p{
+      font-size: 12px;
+  }
+  h2{
+      font-size: 26px;
+  }
+  footer{
+      margin-top: 0;
+  }
 }

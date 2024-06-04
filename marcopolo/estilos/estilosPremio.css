@@ -1,7 +1,7 @@
 h3{
     font-weight: bolder;
     font-size: 26px;
-    background: #ffff00cc;
+    background: #ffff008f;
     border-radius: 11px;
     padding: 2px 11px;
     margin: 7px;
@@ -40,36 +40,3 @@ body{
     padding: 114px 0;
     background-size: cover;
 }
-@media only screen and (max-width: 480px) {
-
-  body {
-    height: auto;
-    padding: 72px 0;
-    background-size: cover;
-  }
-  
-  }
-  @media only screen and (max-width: 380px) {
-
-    body {
-      height: auto;
-   
-      background-size: cover;
-    }
-    h3 {
-        font-weight: bolder;
-        font-size: 30px;
-        background: #ffff00cc;
-        border-radius: 11px;
-        padding: 1px 11px;
-        margin: 2px;
-    }
-    br{
-        display: none;
-      }
-    }
-
-    .promocional{
-        font-size: 12px;
-        margin-top: -5px;
-    }
