@@ -38,7 +38,7 @@
                             <input type="checkbox" id="terminos" name="terminos" required>
                             <label for="terminos" >Autorizo el uso de mis datos para entrega de premios.</label>
                         </div>
-                        <button onclick="location.href='premio.html'">RECLAMAR BONO</button>
+                        <button type="button" id="guardarDatos" onclick="location.href='premioMP.html'">RECLAMAR BONO</button>
                         
                     </form>
                 </main>
@@ -51,7 +51,30 @@
         </div>
         
     </div>
-   
+    <script>
+        document.getElementById('guardarDatos').addEventListener('click', function () {
+            var nombre = document.getElementById('nombre').value;
+            var cedula = document.getElementById('cedula').value;
+            var terminos = document.getElementById('terminos').checked;
+
+            // Verificamos que todos los campos estén llenos
+            if (nombre && cedula && terminos) {
+                // Creamos un objeto con los datos del formulario
+                var datosUsuario = {
+                    nombre: nombre,
+                    cedula: cedula
+                };
+
+                // Convertimos el objeto a JSON y lo guardamos en localStorage
+                localStorage.setItem('datosUsuario', JSON.stringify(datosUsuario));
+
+                // Redirigimos al usuario a otra página
+                window.location.href = 'premioMP.html';
+            } else {
+                alert('Por favor complete todos los campos y acepte los términos para reclamar el bono.');
+            }
+        });
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
