@@ -1,0 +1,75 @@
+h3{
+    font-weight: bolder;
+    font-size: 26px;
+    background: #ffff00cc;
+    border-radius: 11px;
+    padding: 2px 11px;
+    margin: 7px;
+}
+h2,  p{
+    margin: 0;
+    font-weight: lighter;
+}
+.h2Mtop{
+    margin-top: -7px;
+}
+
+.MBtext{
+    margin-bottom: 16px;
+}   
+p{
+    font-size: 15px;
+    margin: -2px;
+}
+.logos{
+    width: 191px;
+    margin: 6px;
+}
+button {
+    border-radius: 7px;
+    border: none;
+    color: black;
+    font-weight: bolder;
+    background: yellow;
+    padding: 6px 9px;
+    font-family: 'Averta-Bold', sans-serif;
+    margin: 7px;
+}
+body{
+    height: auto;
+    padding: 114px 0;
+    background-size: cover;
+}
+@media only screen and (max-width: 480px) {
+
+  body {
+    height: auto;
+    padding: 34px 0;
+    background-size: cover;
+  }
+  
+  }
+  @media only screen and (max-width: 380px) {
+
+    body {
+      height: auto;
+   
+      background-size: cover;
+    }
+    h3 {
+        font-weight: bolder;
+        font-size: 30px;
+        background: #ffff00cc;
+        border-radius: 11px;
+        padding: 1px 11px;
+        margin: 2px;
+    }
+    br{
+        display: none;
+      }
+    }
+
+    .promocional{
+        font-size: 12px;
+        margin-top: -5px;
+    }

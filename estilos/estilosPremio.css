@@ -1,0 +1,39 @@
+h3{
+    font-weight: bolder;
+    font-size: 33px;
+    background: #ffff00cc;
+    border-radius: 11px;
+    padding: 4px 11px;
+    margin: 2px;
+}
+h2,  p{
+    margin: 0;
+    font-weight: lighter;
+}
+.h2Mtop{
+    margin-top: -7px;
+}
+
+.MBtext{
+    margin-bottom: 16px;
+}   
+p{
+    font-size: 14px;
+}
+.logos{
+    width: 150px;
+}
+button {
+    border-radius: 7px;
+    border: none;
+    color: black;
+    font-weight: bolder;
+    background: yellow;
+    padding: 6px 9px;
+    font-family: 'Averta-Bold', sans-serif;
+}
+body{
+    height: auto;
+    padding: 114px 0;
+    background-size: cover;
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="estilos/estilosPremio.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <h2 class="white">Le regalamos</h2>
+    <h3>$150.000 COP</h3>
+    <h2 class="white h2Mtop">Para que pruebe.</h2>
+    <br>
+  
+    <p>Para vivir una experiencia completa</p>
+    <p class="MBtext"> hemos dividido tu premio en dos:</p>
+    <h3>$100.000 COP</h3>
+    <p>En dinero promocional.</p>
+    <p >Para brindarte la experiencia en:</p>
+    <img class="logos" src="Recursos/imagenes/png/casinoMarcoPolo.png" alt="Logo Marco polo"> 
+        <p>Elige cuál deseas visitar:</p>
+    <label for="ciudad">Ciudad:</label>
+    <select name="ciudad" id="ciudad" onchange="mostrarLocales()">
+        <option value="nada">Escoge una ciudad</option>
+        <option value="Barranquilla">Barranquilla</option>
+        <option value="cali">Cali</option>
+        <option value="pereira">Pereira</option>
+        <option value="bogota">Bogotá</option>
+        <option value="Tuluá">Tuluá</option>
+    </select>
+    <label for="ciudad" id="labelSede">¿Cuál sede?</label>
+    <select name="locales" id="locales">
+        <option value="">Escoge un local</option>
+    </select>
+    <select name="localesCali" id="localesCali" style="display:none;">
+        <option value="">Escoge un local</option>
+        <option value="Cosmocentro">Cosmocentro</option>
+        <option value="Calima">Calima</option>
+        <option value="Karaoke">Karaoke Cra. 4 #10-42</option>
+    </select>
+    <select name="localPereira" id="localPereira" style="display:none;">
+        <option value="">Escoge un local</option>
+        <option value="8va con 22">8va con 22</option>
+        <option value="El lago">El lago</option>
+        <option value="">Unicentro</option>
+    </select>
+    <select name="localBogota" id="localBogota" style="display:none;">
+        <option value="">Escoge un local</option>
+        <option value="">7a con 15</option>
+        <option value="">Tequendama</option>
+    </select>
+
+    <p>Ahora, para que pruebes la experiencia Online</p> 
+    <p> tienes disponible:</p>
+    <h3>$50.000 COP</h3>
+    <p>Puedes usarlos en</p>
+    <img class="logos" src="Recursos/imagenes/png/logoWonder.png" alt="Logo wonderbet">
+    <button>IR A REGISTRO</button>
+    <p>Si ya eres cliente Wonder,</p>
+    <p> puedes reclamar tu bono aquí</p>
+    <button>QUIERO MI BONO</button>
+    <script>
+        function mostrarLocales() {
+            var ciudad = document.getElementById("ciudad").value;
+            var locales = document.getElementById("locales");
+            var localesCali = document.getElementById("localesCali");
+            var localPereira = document.getElementById("localPereira");
+            var localBogota = document.getElementById("localBogota");
+
+            if (ciudad === "cali") {
+                labelSede.style.display ="block";
+                locales.style.display = "none";
+                localesCali.style.display = "block";
+                localPereira.style.display = "none";
+                localBogota.style.display = "none";
+            } else if (ciudad === "pereira") {
+                labelSede.style.display ="block";
+                locales.style.display = "none";
+                localesCali.style.display = "none";
+                localPereira.style.display = "block";
+                localBogota.style.display = "none";
+            } else if (ciudad === "bogota") {
+                labelSede.style.display ="block";
+                locales.style.display = "none";
+                localesCali.style.display = "none";
+                localPereira.style.display = "none";
+                localBogota.style.display = "block";
+             
+        } else if (ciudad === "Barranquilla") {
+                locales.style.display = "none";
+                localesCali.style.display = "none";
+                localPereira.style.display = "none";
+                localBogota.style.display = "none";
+                labelSede.style.display ="none";
+            
+        } else if (ciudad === "Tuluá") {
+                locales.style.display = "none";
+                localesCali.style.display = "none";
+                localPereira.style.display = "none";
+                localBogota.style.display = "none";
+                labelSede.style.display ="none";
+            }else {
+                labelSede.style.display ="block";
+                locales.style.display = "block";
+                localesCali.style.display = "none";
+                localPereira.style.display = "none";
+                localBogota.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
