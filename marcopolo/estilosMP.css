@@ -37,8 +37,11 @@ body, p, h1, h2, h3, h4, h5, h6, label, button, input, select {
 form{
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-content: space-between;
     align-items: center;
- flex-direction: column;
+    width: 308px;
+    margin: 13px;
 }
 input, select{
     border-radius: 9px;
@@ -48,7 +51,7 @@ input, select{
     margin: 7px;
 }
 input::placeholder {
-    color:  #E0EDD7;
+    color:  #2c5c1961;
     opacity: 1; /* Firefox */
     font-family: 'Averta-Bold', sans-serif;
   }
@@ -80,7 +83,7 @@ input::placeholder {
     font-weight: bolder;
     font-size: 39px;
     color: white;
-    text-shadow: 1px 1px 5px black;
+    text-shadow: 1px 1px 5px #000000bd;
     margin: -5px;
   }
     button{border-radius: 7px;
@@ -116,8 +119,8 @@ label{
     margin: 0px 5px 0 0;
     color: black;
 }
-select{
-    width: 168px;
+select {
+    width: 130px;
     padding: 2px;
 }
 footer{
@@ -129,7 +132,7 @@ footer>img{
     width: 120px;
 }
 .checkbox-container>label{
-    font-size: 13px;
+    font-size: 11px;
     color: rgb(255 255 255);
     margin: 19px 0px 20px 0px;
 }
@@ -149,15 +152,18 @@ footer>img{
     text-decoration: underline;
     
 }
-.elijaField>div{
+.elijaField>div {
     display: flex;
     align-content: space-between;
     flex-direction: column;
     width: 100%;
     align-items: center;
 }
-.sede-contenedor{
-    
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 

@@ -33,10 +33,15 @@ button {
     background: yellow;
     padding: 6px 9px;
     font-family: 'Averta-Bold', sans-serif;
-    margin: 7px;
+    margin: 10px;
 }
 body{
     height: auto;
     padding: 114px 0;
     background-size: cover;
+}
+.promocional{
+  font-size: 12px;
+  margin-top: -7px;
+  margin-bottom: 18px;
 }

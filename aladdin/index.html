@@ -29,16 +29,16 @@
                     <h2>Te regalamos</h2>
                     <h3>$150.000 COP</h3>
                     <h2>Para que pruebes.</h2>
-                    <form action="">
+                    <form  id="miFormulario" action="">
                        
-                        <input type="text" name="nombre" id="nombre" placeholder="Nombre y Apellido">
+                        <input type="text" name="nombre" id="nombre" placeholder="Nombre y Apellido" required>
                  
-                        <input type="tel" name="cedula" id="cedula" placeholder="Cédula">
+                        <input type="tel" name="cedula" id="cedula" placeholder="Cédula" required>
                         <div class="checkbox-container">
                             <input type="checkbox" id="terminos" name="terminos" required>
                             <label for="terminos" > <a class="tycEnlace" href=""> Autorizo el uso de mis datos para entrega de premios.</a></label>
                         </div>
-                        <button onclick="location.href='premio.html'">RECLAMAR BONO</button>
+                        <button type="submit" id="guardarDatos">RECLAMAR BONO</button>
                         
                     </form>
                 </main>
@@ -51,7 +51,42 @@
         </div>
         
     </div>
-   
+    <script>
+        document.getElementById('miFormulario').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevenir el envío del formulario por defecto
+    
+            var nombre = document.getElementById('nombre').value;
+            var cedula = document.getElementById('cedula').value;
+            var terminos = document.getElementById('terminos').checked;
+    
+            // Expresión regular para validar que el nombre solo contenga letras
+            var nombreRegex = /^[A-Za-z\s]+$/;
+    
+            // Expresión regular para validar que la cédula solo contenga números
+            var cedulaRegex = /^[0-9]+$/;
+    
+            // Verificar que todos los campos estén llenos y se hayan aceptado los términos
+            if (nombreRegex.test(nombre) && cedulaRegex.test(cedula) && terminos) {
+                // Crear un objeto con los datos del formulario
+                var datosUsuario = {
+                    nombre: nombre,
+                    cedula: cedula
+                };
+    
+                // Convertir el objeto a JSON y guardarlo en localStorage
+                localStorage.setItem('datosUsuario', JSON.stringify(datosUsuario));
+    
+                // Redirigir al usuario a otra página
+                window.location.href = 'premio.html';
+            } else {
+                // Si algún campo está vacío, no cumple con el formato requerido o los términos no han sido aceptados, mostrar una alerta
+                alert('Por favor complete todos los campos correctamente y acepte los términos para reclamar el bono.');
+            }
+        });
+    </script>
+    
+
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

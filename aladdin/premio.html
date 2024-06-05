@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,64 +12,67 @@
 
     <title>Document</title>
 </head>
+
 <body>
     <h2 class="white">Te regalamos</h2>
     <h3>$150.000 COP</h3>
     <h2 class="white h2Mtop">Para que pruebes.</h2>
     <br>
-  
+
     <p>¡Descubre la emoción como nunca antes!</p>
     <p class=""> Hemos dividido tu premio</p>
     <p class="MBtext"> para que disfrutes al máximo:</p>
-    <h3>$300.000 COP</h3>
+    <h3>$100.000 COP</h3>
     <p class="promocional">En dinero promocional.</p>
-    <p >Para brindarte la experiencia en:</p>
-    <img class="logos" src="Recursos/imagenes/png/logoAladdin.png" alt="Logo Marco polo"> 
-        <p>Elije cuál deseas visitar:</p>
-        <div class="elijeField">
-            <div>
-    <label for="ciudad">Ciudad:</label>
-    <select name="ciudad" id="ciudad" onchange="mostrarLocales()">
-        <option value="nada">Elije su ciudad</option>
-        <option value="Barranquilla">Barranquilla</option>
-        <option value="cali">Cali</option>
-        <option value="pereira">Pereira</option>
-        <option value="bogota">Bogotá</option>
-        <option value="Tuluá">Tuluá</option>
-    </select>
-</div>
-<div id="sedeContenedor">
-    <label for="ciudad" id="labelSede">¿Cuál sede?</label>
-    <select name="locales" id="locales">
-        <option value="">Elije un local</option>
-    </select>
-    <select name="localesCali" id="localesCali" style="display:none;">
-        <option value="">Elije  un local</option>
-        <option value="Cosmocentro">Cosmocentro</option>
-        <option value="Calima">Calima</option>
-        <option value="Karaoke">Karaoke Cra. 4 #10-42</option>
-    </select>
-    <select name="localPereira" id="localPereira" style="display:none;">
-        <option value="">Elije  un local</option>
-        <option value="8va con 22">8va con 22</option>
-        <option value="El lago">El lago</option>
-        <option value="">Unicentro</option>
-    </select>
-    <select name="localBogota" id="localBogota" style="display:none;">
-        <option value="">Elije  un local</option>
-        <option value="">7a con 15</option>
-        <option value="">Tequendama</option>
-    </select>
-</div>
-</div>
-    <p>Ahora, para que pruebe la experiencia Online</p> 
-    <p> tiene disponible:</p>
-    <h3>$150.000 COP</h3>
-    <p>Puede usarlos en:</p>
+    <p>Para brindarte la experiencia en:</p>
+    <img class="logos" src="Recursos/imagenes/png/logoAladdin.png" alt="Logo Marco polo">
+    <p>Elije cuál deseas visitar:</p>
+    <form id="seleccionForm" action="">
+    <div class="elijeField">
+        <div>
+            <label for="ciudad">Ciudad:</label>
+            <select name="ciudad" id="ciudad" onchange="mostrarLocales()">
+                <option value="nada">Elije tu ciudad</option>
+                <option value="Barranquilla">Barranquilla</option>
+                <option value="cali">Cali</option>
+                <option value="pereira">Pereira</option>
+                <option value="bogota">Bogotá</option>
+                <option value="Tuluá">Tuluá</option>
+            </select>
+        </div>
+        <div id="sedeContenedor">
+            <label for="ciudad" id="labelSede">¿Cuál sede?</label>
+            <select name="locales" id="locales">
+                <option value="nada">Elije un local</option>
+            </select>
+            <select name="localesCali" id="localesCali" style="display:none;">
+                <option value="nada">Elije un local</option>
+                <option value="Cosmocentro">Cosmocentro</option>
+                <option value="Calima">Calima</option>
+                <option value="Karaoke">Karaoke Cra. 4 #10-42</option>
+            </select>
+            <select name="localPereira" id="localPereira" style="display:none;">
+                <option value="nada">Elije un local</option>
+                <option value="8va con 22">8va con 22</option>
+                <option value="El lago">El lago</option>
+                <option value="Unicentro">Unicentro</option>
+            </select>
+            <select name="localBogota" id="localBogota" style="display:none;">
+                <option value="nada">Elije un local</option>
+                <option value="7a con 15">7a con 15</option>
+                <option value="Tequendama">Tequendama</option>
+            </select>
+        </div>
+    </div>
+</form>
+    <p>Ahora, para que pruebes la experiencia Online</p>
+    <p> tienes disponible:</p>
+    <h3>$50.000 COP</h3>
+    <p>Puedes usarlos en:</p>
     <img class="logos" src="Recursos/imagenes/png/logoWonder.png" alt="Logo wonderbet">
-    <button>IR A REGISTRO</button>
-    <p>Si ya es cliente Wonder,</p>
-    <p> puede reclamar su bono aquí.</p>
+    <button id="botonEnviar" >IR A REGISTRO</button>
+    <p>Si ya eres cliente Wonder,</p>
+    <p> puedes reclamar tu bono aquí.</p>
     <button>QUIERO MI BONO</button>
     <script>
         function mostrarLocales() {
@@ -83,47 +87,48 @@
             if (ciudad === "cali") {
                 sedeContenedor.style.width = "100%";
                 sedeContenedor.style.display = "flex";
-                labelSede.style.display ="block";
+                labelSede.style.display = "block";
                 locales.style.display = "none";
                 localesCali.style.display = "block";
                 localPereira.style.display = "none";
                 localBogota.style.display = "none";
             } else if (ciudad === "pereira") {
                 sedeContenedor.style.width = "100%";
+                localPereira.style.display = "block";
                 sedeContenedor.style.display = "flex";
-                labelSede.style.display ="block";
+                labelSede.style.display = "block";
                 locales.style.display = "none";
                 localesCali.style.display = "none";
-                localPereira.style.display = "block";
+                
                 localBogota.style.display = "none";
             } else if (ciudad === "bogota") {
                 sedeContenedor.style.width = "100%";
                 sedeContenedor.style.display = "flex";
-                labelSede.style.display ="block";
+                labelSede.style.display = "block";
                 localBogota.style.display = "block";
                 locales.style.display = "none";
                 localesCali.style.display = "none";
                 localPereira.style.display = "none";
-                
-             
-        } else if (ciudad === "Barranquilla") {
-            sedeContenedor.style.width = "0";
-                locales.style.display = "none";
-                localesCali.style.display = "none";
-                localPereira.style.display = "none";
-                localBogota.style.display = "none";
-                labelSede.style.display ="none";
-            
-        } else if (ciudad === "Tuluá") {
-            sedeContenedor.style.width = "0";
-                locales.style.display = "none";
-                localesCali.style.display = "none";
-                localPereira.style.display = "none";
-                localBogota.style.display = "none";
-                labelSede.style.display ="none";
-            }else {
+
+
+            } else if (ciudad === "Barranquilla") {
                 sedeContenedor.style.width = "0";
-                labelSede.style.display ="block";
+                locales.style.display = "none";
+                localesCali.style.display = "none";
+                localPereira.style.display = "none";
+                localBogota.style.display = "none";
+                labelSede.style.display = "none";
+
+            } else if (ciudad === "Tuluá") {
+                sedeContenedor.style.width = "0";
+                locales.style.display = "none";
+                localesCali.style.display = "none";
+                localPereira.style.display = "none";
+                localBogota.style.display = "none";
+                labelSede.style.display = "none";
+            } else {
+                sedeContenedor.style.width = "100%";
+                labelSede.style.display = "block";
                 locales.style.display = "block";
                 localesCali.style.display = "none";
                 localPereira.style.display = "none";
@@ -131,5 +136,107 @@
             }
         }
     </script>
+    <!-- Código en seleccion.html -->
+    <!-- Código en seleccion.html -->
+    <script>
+        function guardarDatosUsuario() {
+            var ciudad = document.getElementById('ciudad').value;
+            var local = '';
+    
+            if (ciudad === 'cali') {
+                local = document.getElementById('localesCali').value;
+            } else if (ciudad === 'pereira') {
+                local = document.getElementById('localPereira').value;
+            } else if (ciudad === 'bogota') {
+                local = document.getElementById('localBogota').value;
+            } else {
+                local = document.getElementById('locales').value;
+            }
+    
+            // Obtener datosUsuario del localStorage y convertirlo a objeto JavaScript
+            var datosUsuario = JSON.parse(localStorage.getItem('datosUsuario')) || {};
+    
+            // Agregar la información de ciudad y local al objeto datosUsuario
+            datosUsuario.ciudad = ciudad;
+            datosUsuario.local = local;
+    
+            // Guardar el objeto datosUsuario actualizado en localStorage
+            localStorage.setItem('datosUsuario', JSON.stringify(datosUsuario));
+        }
+    
+        // Agregar event listener a los selects de ciudad y local para guardar los datos automáticamente
+        document.getElementById('ciudad').addEventListener('change', guardarDatosUsuario);
+        document.getElementById('localesCali').addEventListener('change', guardarDatosUsuario);
+        document.getElementById('localPereira').addEventListener('change', guardarDatosUsuario);
+        document.getElementById('localBogota').addEventListener('change', guardarDatosUsuario);
+        document.getElementById('locales').addEventListener('change', guardarDatosUsuario);
+    </script>
+    
+    <script>
+        document.getElementById("botonEnviar").addEventListener("click", function () {
+            validarSedeCali();
+        });
+
+        function validarSedeCali() {
+            var ciudad = document.getElementById("ciudad").value;
+            var localesCali = document.getElementById("localesCali");
+
+            if (ciudad === "cali") {
+                var sedeCali = localesCali.value;
+                if (sedeCali === "nada") {
+                    localesCali.style.border = "3px solid black";
+                    setTimeout(function () {
+                        localesCali.style.border = "";
+                    }, 3000);
+                    alert("Por favor seleccione una sede en Cali.");
+                    return;
+                }
+            }
+            mostrarLocales();
+        }
+
+        function mostrarLocales() {
+            var ciudad = document.getElementById("ciudad").value;
+            var locales = document.getElementById("locales");
+            var localesCali = document.getElementById("localesCali");
+            var sedeContenedor = document.getElementById("sedeContenedor");
+            var labelSede = document.getElementById("labelSede");
+
+            // Validar si se ha seleccionado una ciudad
+            if (ciudad === "nada") {
+                document.getElementById("ciudad").style.border = "3px solid black";
+                setTimeout(function () {
+                    document.getElementById("ciudad").style.border = "";
+                }, 3000);
+                alert("Por favor seleccione una ciudad.");
+                return;
+            }
+
+            if (ciudad === "cali") {
+                sedeContenedor.style.width = "100%";
+                sedeContenedor.style.display = "flex";
+                labelSede.style.display = "block";
+                locales.style.display = "none";
+                localesCali.style.display = "block";
+
+                // Mostrar el elemento localesCali
+                localesCali.style.display = "block";
+            } else if (ciudad === "bogota" || ciudad === "Barranquilla") {
+                labelSede.style.display = "none";
+                sedeContenedor.style.width = "0";
+                locales.style.display = "none";
+                localesCali.style.display = "none";
+            } else {
+                sedeContenedor.style.width = "0";
+                labelSede.style.display = "flex";
+                locales.style.display = "flex";
+                localesCali.style.display = "none";
+            }
+        }
+    </script>
+
+
+
 </body>
+
 </html>

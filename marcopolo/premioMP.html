@@ -26,34 +26,36 @@
     <p class="promocional">En dinero promocional.</p>
     <p>Para brindarle la experiencia en:</p>
     <img class="logos" src="Recursos/imagenes/png/casinoMarcoPolo.png" alt="Logo Marco polo">
-    <p>Elija cuál deseas visitar:</p>
-    <div class="elijaField">
-        <div>
-            <label for="ciudad">Ciudad:</label>
-            <select name="ciudad" id="ciudad" onchange="mostrarLocales()">
-                <option value="nada">Elija su ciudad</option>
-                <option value="Barranquilla">Barranquilla</option>
-                <option value="cali">Cali</option>
+    <p>Elija cuál desea visitar:</p>
+    <form action="">
+        <div class="elijaField">
+            <div>
+                <label for="ciudad">Ciudad:</label>
+                <select name="ciudad" id="ciudad" onchange="mostrarLocales()">
+                    <option value="nada">Elija su ciudad</option>
+                    <option value="Barranquilla">Barranquilla</option>
+                    <option value="cali">Cali</option>
 
-                <option value="bogota">Bogotá</option>
+                    <option value="bogota">Bogotá</option>
 
-            </select>
+                </select>
+            </div>
+            <div id="sedeContenedor">
+                <label for="Sede" id="labelSede">¿Cuál sede?</label>
+                <select name="locales" id="locales">
+                    <option value="">Elija un local</option>
+                </select>
+                <select name="localesCali" id="localesCali" style="display:none;">
+                    <option value="nada">Elija un local</option>
+                    <option value="Cosmocentro">Intercontinental</option>
+                    <option value="Calima">Holguines</option>
+
+                </select>
+
+            </div>
         </div>
-        <div id="sedeContenedor">
-            <label for="Sede" id="labelSede">¿Cuál sede?</label>
-            <select name="locales" id="locales">
-                <option value="">Elija un local</option>
-            </select>
-            <select name="localesCali" id="localesCali" style="display:none;">
-                <option value="nada">Elija un local</option>
-                <option value="Cosmocentro">Intercontinental</option>
-                <option value="Calima">Holguines</option>
-
-            </select>
-
-        </div>
-    </div>
-    <p>Ahora, para que pruebe la experiencia Online</p>
+    </form>
+    <p class="prueba">Ahora, para que pruebe la experiencia Online</p>
     <p> tiene disponible:</p>
     <h3>$150.000 COP</h3>
     <p>Puede usarlos en:</p>
@@ -62,21 +64,21 @@
     <p>Si ya es cliente Wonder,</p>
     <p> puede reclamar su bono aquí.</p>
     <button>QUIERO MI BONO</button>
-   
+
     <script>
-        document.getElementById("registro").addEventListener("click", function() {
+        document.getElementById("registro").addEventListener("click", function () {
             validarSedeCali();
         });
-    
+
         function validarSedeCali() {
             var ciudad = document.getElementById("ciudad").value;
             var localesCali = document.getElementById("localesCali");
-    
+
             if (ciudad === "cali") {
                 var sedeCali = localesCali.value;
                 if (sedeCali === "nada") {
                     localesCali.style.border = "4px solid red";
-                    setTimeout(function() {
+                    setTimeout(function () {
                         localesCali.style.border = "";
                     }, 3000);
                     alert("Por favor seleccione una sede en Cali.");
@@ -85,31 +87,31 @@
             }
             mostrarLocales();
         }
-    
+
         function mostrarLocales() {
             var ciudad = document.getElementById("ciudad").value;
             var locales = document.getElementById("locales");
             var localesCali = document.getElementById("localesCali");
             var sedeContenedor = document.getElementById("sedeContenedor");
             var labelSede = document.getElementById("labelSede");
-    
+
             // Validar si se ha seleccionado una ciudad
             if (ciudad === "nada") {
                 document.getElementById("ciudad").style.border = "3px solid red";
-                setTimeout(function() {
+                setTimeout(function () {
                     document.getElementById("ciudad").style.border = "";
                 }, 3000);
                 alert("Por favor seleccione una ciudad.");
                 return;
             }
-    
+
             if (ciudad === "cali") {
                 sedeContenedor.style.width = "100%";
                 sedeContenedor.style.display = "flex";
                 labelSede.style.display = "block";
                 locales.style.display = "none";
                 localesCali.style.display = "block";
-    
+
                 // Mostrar el elemento localesCali
                 localesCali.style.display = "block";
             } else if (ciudad === "bogota" || ciudad === "Barranquilla") {
@@ -125,10 +127,10 @@
             }
         }
     </script>
-    
-    
-    
-    
+
+
+
+
 </body>
 
 </html>
