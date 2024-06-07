@@ -4,7 +4,7 @@
 
     body {
       height: auto;
-      padding: 59px 0;
+      padding: 66px 0;
       background-size: cover;
     }
     
@@ -13,7 +13,7 @@
 
     body {
         height: auto;
-        padding: 87px 0;
+        padding: 82px 0;
         background-size: cover;
     }
     .logos {
@@ -51,7 +51,7 @@
     body {
         height: auto;
         background-size: cover;
-        padding: 14px 0;
+        padding: 7px 0;
     }
       h3 {
           font-weight: bolder;
@@ -69,5 +69,13 @@
       .promocional{
           font-size: 12px;
           margin-top: -5px;
+          margin-bottom: 0;
+      }
+      form{
+        margin: 0;
+        
+      }
+      p{
+        font-size: 12px;
       }
   }

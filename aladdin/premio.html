@@ -15,171 +15,92 @@
 
 <body>
     <h2 class="white">Te regalamos</h2>
-    <h3>$150.000 COP</h3>
+    <h3>$150.000</h3>
+    <p class="promocional">En dinero promocional.</p>
     <h2 class="white h2Mtop">Para que pruebes.</h2>
     <br>
 
     <p>¡Descubre la emoción como nunca antes!</p>
     <p class=""> Hemos dividido tu premio</p>
     <p class="MBtext"> para que disfrutes al máximo:</p>
-    <h3>$100.000 COP</h3>
+    <h3>$100.000</h3>
     <p class="promocional">En dinero promocional.</p>
     <p>Para brindarte la experiencia en:</p>
     <img class="logos" src="Recursos/imagenes/png/logoAladdin.png" alt="Logo Marco polo">
     <p>Elije cuál deseas visitar:</p>
     <form id="seleccionForm" action="">
-    <div class="elijeField">
-        <div>
-            <label for="ciudad">Ciudad:</label>
-            <select name="ciudad" id="ciudad" onchange="mostrarLocales()">
-                <option value="nada">Elije tu ciudad</option>
-                <option value="Barranquilla">Barranquilla</option>
-                <option value="cali">Cali</option>
-                <option value="pereira">Pereira</option>
-                <option value="bogota">Bogotá</option>
-                <option value="Tuluá">Tuluá</option>
-            </select>
+        <div class="elijeField">
+            <div>
+                <label for="ciudad">Ciudad:</label>
+                <select name="ciudad" id="ciudad" onchange="mostrarLocales()">
+                    <option value="nada">Elije tu ciudad</option>
+                    <option value="Barranquilla">Barranquilla</option>
+                    <option value="cali">Cali</option>
+                    <option value="pereira">Pereira</option>
+                    <option value="bogota">Bogotá</option>
+
+                </select>
+            </div>
+            <div id="sedeContenedor">
+                <label for="ciudad" id="labelSede">¿Cuál sede?</label>
+                <select name="locales" id="locales">
+                    <option value="nada">Elije un local</option>
+                </select>
+                <select name="localesCali" id="localesCali" style="display:none;">
+                    <option value="nada">Elije un local</option>
+                    <option value="Cosmocentro">Cosmocentro</option>
+                    <option value="Calima">Calima</option>
+                    <option value="Karaoke">Karaoke</option>
+                    <option value="Terminal">Terminal</option>
+                </select>
+                <select name="localPereira" id="localPereira" style="display:none;">
+                    <option value="nada">Elije un local</option>
+                    <option value="DeLa22">De la 22</option>
+                    <option value="Unicentro">Unicentro</option>
+                </select>
+                <select name="localBogota" id="localBogota" style="display:none;">
+                    <option value="nada">Elije un local</option>
+                    <option value="Septima">Séptima</option>
+                    <option value="Tequendama">Tequendama</option>
+                </select>
+            </div>
         </div>
-        <div id="sedeContenedor">
-            <label for="ciudad" id="labelSede">¿Cuál sede?</label>
-            <select name="locales" id="locales">
-                <option value="nada">Elije un local</option>
-            </select>
-            <select name="localesCali" id="localesCali" style="display:none;">
-                <option value="nada">Elije un local</option>
-                <option value="Cosmocentro">Cosmocentro</option>
-                <option value="Calima">Calima</option>
-                <option value="Karaoke">Karaoke Cra. 4 #10-42</option>
-            </select>
-            <select name="localPereira" id="localPereira" style="display:none;">
-                <option value="nada">Elije un local</option>
-                <option value="8va con 22">8va con 22</option>
-                <option value="El lago">El lago</option>
-                <option value="Unicentro">Unicentro</option>
-            </select>
-            <select name="localBogota" id="localBogota" style="display:none;">
-                <option value="nada">Elije un local</option>
-                <option value="7a con 15">7a con 15</option>
-                <option value="Tequendama">Tequendama</option>
-            </select>
-        </div>
-    </div>
-</form>
+        <label for="Sede" id="labelDireccion"></label>
+    </form>
     <p>Ahora, para que pruebes la experiencia Online</p>
     <p> tienes disponible:</p>
-    <h3>$50.000 COP</h3>
+    <h3>$50.000</h3>
+    <p class="promocional">En dinero promocional.</p>
     <p>Puedes usarlos en:</p>
     <img class="logos" src="Recursos/imagenes/png/logoWonder.png" alt="Logo wonderbet">
-    <button id="botonEnviar" >IR A REGISTRO</button>
+    <button id="registro">ENVIAR Y CONTINUAR</button>
     <p>Si ya eres cliente Wonder,</p>
     <p> puedes reclamar tu bono aquí.</p>
     <button>QUIERO MI BONO</button>
     <script>
-        function mostrarLocales() {
+        document.getElementById("registro").addEventListener("click", function () {
+            validarSedeCali();
+        });
+        document.getElementById("ciudad").addEventListener("change", function () {
+            mostrarLocales();
+        });
+        document.getElementById("localPereira").addEventListener("change", function () {
+            mostrardireccionPereira();
+
+        });
+        document.getElementById("localBogota").addEventListener("change", function () {
+            mostrardireccionBogota();
+
+        });
+        document.getElementById("localesCali").addEventListener("change", function () {
+            mostrardireccionCali();
+
+        });
+        function validarSedes() {
             var ciudad = document.getElementById("ciudad").value;
-            var locales = document.getElementById("locales");
             var localesCali = document.getElementById("localesCali");
             var localPereira = document.getElementById("localPereira");
             var localBogota = document.getElementById("localBogota");
-            var sedeContenedor = document.getElementById("sedeContenedor");
-            var labelSede = document.getElementById("labelSede");
-
-            if (ciudad === "cali") {
-                sedeContenedor.style.width = "100%";
-                sedeContenedor.style.display = "flex";
-                labelSede.style.display = "block";
-                locales.style.display = "none";
-                localesCali.style.display = "block";
-                localPereira.style.display = "none";
-                localBogota.style.display = "none";
-            } else if (ciudad === "pereira") {
-                sedeContenedor.style.width = "100%";
-                localPereira.style.display = "block";
-                sedeContenedor.style.display = "flex";
-                labelSede.style.display = "block";
-                locales.style.display = "none";
-                localesCali.style.display = "none";
-                
-                localBogota.style.display = "none";
-            } else if (ciudad === "bogota") {
-                sedeContenedor.style.width = "100%";
-                sedeContenedor.style.display = "flex";
-                labelSede.style.display = "block";
-                localBogota.style.display = "block";
-                locales.style.display = "none";
-                localesCali.style.display = "none";
-                localPereira.style.display = "none";
-
-
-            } else if (ciudad === "Barranquilla") {
-                sedeContenedor.style.width = "0";
-                locales.style.display = "none";
-                localesCali.style.display = "none";
-                localPereira.style.display = "none";
-                localBogota.style.display = "none";
-                labelSede.style.display = "none";
-
-            } else if (ciudad === "Tuluá") {
-                sedeContenedor.style.width = "0";
-                locales.style.display = "none";
-                localesCali.style.display = "none";
-                localPereira.style.display = "none";
-                localBogota.style.display = "none";
-                labelSede.style.display = "none";
-            } else {
-                sedeContenedor.style.width = "100%";
-                labelSede.style.display = "block";
-                locales.style.display = "block";
-                localesCali.style.display = "none";
-                localPereira.style.display = "none";
-                localBogota.style.display = "none";
-            }
-        }
-    </script>
-    <!-- Código en seleccion.html -->
-    <!-- Código en seleccion.html -->
-    <script>
-        function guardarDatosUsuario() {
-            var ciudad = document.getElementById('ciudad').value;
-            var local = '';
-    
-            if (ciudad === 'cali') {
-                local = document.getElementById('localesCali').value;
-            } else if (ciudad === 'pereira') {
-                local = document.getElementById('localPereira').value;
-            } else if (ciudad === 'bogota') {
-                local = document.getElementById('localBogota').value;
-            } else {
-                local = document.getElementById('locales').value;
-            }
-    
-            // Obtener datosUsuario del localStorage y convertirlo a objeto JavaScript
-            var datosUsuario = JSON.parse(localStorage.getItem('datosUsuario')) || {};
-    
-            // Agregar la información de ciudad y local al objeto datosUsuario
-            datosUsuario.ciudad = ciudad;
-            datosUsuario.local = local;
-    
-            // Guardar el objeto datosUsuario actualizado en localStorage
-            localStorage.setItem('datosUsuario', JSON.stringify(datosUsuario));
-        }
-    
-        // Agregar event listener a los selects de ciudad y local para guardar los datos automáticamente
-        document.getElementById('ciudad').addEventListener('change', guardarDatosUsuario);
-        document.getElementById('localesCali').addEventListener('change', guardarDatosUsuario);
-        document.getElementById('localPereira').addEventListener('change', guardarDatosUsuario);
-        document.getElementById('localBogota').addEventListener('change', guardarDatosUsuario);
-        document.getElementById('locales').addEventListener('change', guardarDatosUsuario);
-    </script>
-    
-    <script>
-        document.getElementById("botonEnviar").addEventListener("click", function () {
-            validarSedeCali();
-        });
-
-        function validarSedeCali() {
-            var ciudad = document.getElementById("ciudad").value;
-            var localesCali = document.getElementById("localesCali");
 
             if (ciudad === "cali") {
                 var sedeCali = localesCali.value;
@@ -191,23 +112,45 @@
                     alert("Por favor seleccione una sede en Cali.");
                     return;
                 }
+            } else if (ciudad === "pereira") {
+                var sedePereira = localPereira.value;
+                if (sedePereira === "nada") {
+                    localPereira.style.border = "3px solid black";
+                    setTimeout(function () {
+                        localPereira.style.border = "";
+                    }, 3000);
+                    alert("Por favor seleccione una sede en Pereira.");
+                    return;
+                }
+            } else if (ciudad === "bogota") {
+                var sedeBogota = localBogota.value;
+                if (sedeBogota === "nada") {
+                    localBogota.style.border = "3px solid black";
+                    setTimeout(function () {
+                        localBogota.style.border = "";
+                    }, 3000);
+                    alert("Por favor seleccione una sede en Bogotá.");
+                    return;
+                }
+            } else {
+                // Si la ciudad no es Cali, Pereira ni Bogotá, simplemente mostramos los locales
+                mostrarLocales();
             }
-            mostrarLocales();
         }
 
         function mostrarLocales() {
             var ciudad = document.getElementById("ciudad").value;
             var locales = document.getElementById("locales");
             var localesCali = document.getElementById("localesCali");
+            var localPereira = document.getElementById("localPereira");
+            var localBogota = document.getElementById("localBogota");
             var sedeContenedor = document.getElementById("sedeContenedor");
             var labelSede = document.getElementById("labelSede");
-
-            // Validar si se ha seleccionado una ciudad
             if (ciudad === "nada") {
                 document.getElementById("ciudad").style.border = "3px solid black";
                 setTimeout(function () {
                     document.getElementById("ciudad").style.border = "";
-                }, 3000);
+                }, 2000);
                 alert("Por favor seleccione una ciudad.");
                 return;
             }
@@ -218,24 +161,169 @@
                 labelSede.style.display = "block";
                 locales.style.display = "none";
                 localesCali.style.display = "block";
+                localPereira.style.display = "none";
+                localBogota.style.display = "none";
+                labelDireccion.style.display = "none";
+            } else if (ciudad === "pereira") {
+                sedeContenedor.style.width = "100%";
+                sedeContenedor.style.display = "flex";
+                labelSede.style.display = "block";
+                locales.style.display = "none";
+                localesCali.style.display = "none";
+                localPereira.style.display = "flex";
+                localBogota.style.display = "none";
+                labelDireccion.style.display = "none";
+            } else if (ciudad === "bogota") {
+                sedeContenedor.style.width = "100%";
+                sedeContenedor.style.display = "flex";
+                labelSede.style.display = "block";
+                localBogota.style.display = "block";
+                locales.style.display = "none";
+                localesCali.style.display = "none";
+                localPereira.style.display = "none";
+                labelDireccion.style.display = "none";
 
-                // Mostrar el elemento localesCali
-                localesCali.style.display = "block";
-            } else if (ciudad === "bogota" || ciudad === "Barranquilla") {
-                labelSede.style.display = "none";
+
+            } else if (ciudad === "Barranquilla") {
+                labelDireccion.innerHTML = "Dragon Fénix. Cra. 43 # 75B – 167.";
+                labelDireccion.style.display = "block";
                 sedeContenedor.style.width = "0";
                 locales.style.display = "none";
                 localesCali.style.display = "none";
-            } else {
+                localPereira.style.display = "none";
+                localBogota.style.display = "none";
+                labelSede.style.display = "none";
+
+            } else if (ciudad === "Tulua") {
                 sedeContenedor.style.width = "0";
-                labelSede.style.display = "flex";
-                locales.style.display = "flex";
+                locales.style.display = "none";
                 localesCali.style.display = "none";
+                localPereira.style.display = "none";
+                localBogota.style.display = "none";
+                labelSede.style.display = "none";
+
+            } else {
+                sedeContenedor.style.width = "100%";
+                labelSede.style.display = "block";
+                locales.style.display = "block";
+                localesCali.style.display = "none";
+                localPereira.style.display = "none";
+                localBogota.style.display = "none";
+                labelDireccion.style.display = "none";
             }
         }
+        function mostrardireccionPereira() {
+            var sedeSeleccionada = document.getElementById("localPereira").value;
+            var labelDireccion = document.getElementById("labelDireccion");
+            var form = document.getElementsByTagName("form")[0]; 
+            switch (sedeSeleccionada) {
+                case "DeLa22":
+                    labelDireccion.innerHTML = "Cra. 8 # 22 - 31.";
+                    labelDireccion.style.display = "block";
+                    form.style.margin = "0";
+                    break;
+                case "Unicentro":
+                    labelDireccion.innerHTML = "Unicentro. Av. 30 de agosto # 76 - 21.";
+                    labelDireccion.style.display = "block";
+                    form.style.margin = "0";
+                    break;
+
+                default:
+                    labelDireccion.style.display = "none";
+                    break;
+            }
+        }
+        function mostrardireccionBogota() {
+            var sedeSeleccionada = document.getElementById("localBogota").value;
+            var labelDireccion = document.getElementById("labelDireccion");
+            var form = document.getElementsByTagName("form")[0]; 
+            switch (sedeSeleccionada) {
+                case "Septima":
+                    labelDireccion.innerHTML = "Cra. 7 # 19 - 49.";
+                    labelDireccion.style.display = "block";
+                    form.style.margin = "0";
+                    break;
+                case "Tequendama":
+                    labelDireccion.innerHTML = "Cra. 10 # 27 - 27.";
+                    labelDireccion.style.display = "block";
+                    form.style.margin = "0";
+                    break;
+                default:
+                    labelDireccion.style.display = "none";
+                    break;
+            }
+        }
+        function mostrardireccionCali() {
+            var sedeSeleccionada = document.getElementById("localesCali").value;
+            var labelDireccion = document.getElementById("labelDireccion");
+            var form = document.getElementsByTagName("form")[0]; // Selecciona el primer formulario encontrado
+
+            switch (sedeSeleccionada) {
+                case "Calima":
+                    labelDireccion.innerHTML = "Cll. 70 con Cra 1 Local - PC1L.";
+                    labelDireccion.style.display = "block";
+                    form.style.margin = "0"; // Elimina el margen del formulario
+                    break;
+                case "Terminal":
+                    labelDireccion.innerHTML = "Cll. 30N # 2AN -29 Local 133 -134.";
+                    labelDireccion.style.display = "block";
+                    form.style.margin = "0"; // Elimina el margen del formulario
+                    break;
+                case "Karaoke":
+                    labelDireccion.innerHTML = "Cra. 4 # 10 - 36.";
+                    labelDireccion.style.display = "block";
+                    form.style.margin = "0"; // Elimina el margen del formulario
+                    break;
+                case "Cosmocentro":
+                    labelDireccion.innerHTML = "Cll. 5 # 50 - 103.";
+                    labelDireccion.style.display = "block";
+                    form.style.margin = "0"; // Elimina el margen del formulario
+                    break;
+                default:
+                    labelDireccion.style.display = "none";
+                    break;
+            }
+        }
+
+    </script>
+    <!-- Código en seleccion.html -->
+    <!-- Código en seleccion.html -->
+    <script>
+        function guardarDatosUsuario() {
+            var ciudad = document.getElementById('ciudad').value;
+            var local = '';
+
+            if (ciudad === 'cali') {
+                local = document.getElementById('localesCali').value;
+            } else if (ciudad === 'pereira') {
+                local = document.getElementById('localPereira').value;
+            } else if (ciudad === 'bogota') {
+                local = document.getElementById('localBogota').value;
+            } else {
+                local = document.getElementById('locales').value;
+            }
+
+            // Obtener datosUsuario del localStorage y convertirlo a objeto JavaScript
+            var datosUsuario = JSON.parse(localStorage.getItem('datosUsuario')) || {};
+
+            // Agregar la información de ciudad y local al objeto datosUsuario
+            datosUsuario.ciudad = ciudad;
+            datosUsuario.local = local;
+
+            // Guardar el objeto datosUsuario actualizado en localStorage
+            localStorage.setItem('datosUsuario', JSON.stringify(datosUsuario));
+        }
+
+        // Agregar event listener a los selects de ciudad y local para guardar los datos automáticamente
+        document.getElementById('ciudad').addEventListener('change', guardarDatosUsuario);
+        document.getElementById('localesCali').addEventListener('change', guardarDatosUsuario);
+        document.getElementById('localPereira').addEventListener('change', guardarDatosUsuario);
+        document.getElementById('localBogota').addEventListener('change', guardarDatosUsuario);
+        document.getElementById('locales').addEventListener('change', guardarDatosUsuario);
     </script>
 
 
+<script src="javascript/form.js"></script>
 
 </body>
 

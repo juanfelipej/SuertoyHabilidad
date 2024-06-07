@@ -40,7 +40,7 @@ form{
     flex-direction: column;
     align-content: space-between;
     align-items: center;
-    width: 308px;
+    width: 315px;
     margin: 13px;
 }
 input, select{
@@ -86,13 +86,15 @@ input::placeholder {
     text-shadow: 1px 1px 5px black;
     margin: -5px;
   }
-    button{border-radius: 7px;
+    button{
+    border-radius: 7px;
     border: none;
     color: black;
     font-weight: bolder;
     background: yellow;
     padding: 6px 9px;
     font-family: 'Averta-Bold', sans-serif;
+    margin-top: 24px;
 }
 strong{
     color: yellow;
@@ -108,12 +110,12 @@ strong{
 }
 .checkbox-container {
     display: flex;
-    align-items: center; /* Centra verticalmente el contenido */
+    align-items: flex-start; /* Centra verticalmente el contenido */
 }
 .tycEnlace{
     color: white;
     text-decoration: underline;
-    
+    font-size: 11px;
 }
 label{
     color: white;
@@ -139,7 +141,7 @@ footer>img{
 .checkbox-container>label{
     font-size: 11px;
     color: rgb(255 255 255);
-    margin: 19px 0px 20px 0px;
+    margin: -2px 0px 0px 0px;
 }
 .row:first-child{
     padding: 0;
@@ -150,7 +152,7 @@ footer>img{
     justify-content: space-between;
     align-items: center;
     align-content: center;
-    /* margin: 12px; */
+    margin: 12px;
 }
 .elijeField>div {
     display: flex;

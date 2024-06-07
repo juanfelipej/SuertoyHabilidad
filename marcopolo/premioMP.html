@@ -15,14 +15,15 @@
 
 <body>
     <h2 class="white">Le regalamos</h2>
-    <h3>$450.000 COP</h3>
+    <h3>$450.000</h3>
+        <p class="promocional">En dinero promocional.</p>
     <h2 class="white h2Mtop">Para que pruebe.</h2>
     <br>
 
     <p>¡Descubra la emoción como nunca antes!</p>
     <p class=""> Hemos dividido su premio</p>
     <p class="MBtext"> para que disfrute al máximo:</p>
-    <h3>$300.000 COP</h3>
+    <h3>$300.000</h3>
     <p class="promocional">En dinero promocional.</p>
     <p>Para brindarle la experiencia en:</p>
     <img class="logos" src="Recursos/imagenes/png/casinoMarcoPolo.png" alt="Logo Marco polo">
@@ -47,20 +48,21 @@
                 </select>
                 <select name="localesCali" id="localesCali" style="display:none;">
                     <option value="nada">Elija un local</option>
-                    <option value="Cosmocentro">Intercontinental</option>
-                    <option value="Calima">Holguines</option>
+                    <option value="Intercontinental">Intercontinental</option>
+                    <option value="Holguines">Holguines</option>
 
                 </select>
 
             </div>
         </div>
+        <label for="Sede" id="labelDireccion"></label>
     </form>
     <p class="prueba">Ahora, para que pruebe la experiencia Online</p>
     <p> tiene disponible:</p>
-    <h3>$150.000 COP</h3>
+    <h3>$150.000</h3>
     <p>Puede usarlos en:</p>
     <img class="logos" src="Recursos/imagenes/png/logoWonder.png" alt="Logo wonderbet">
-    <button id="registro">IR A REGISTRO</button>
+    <button id="registro">ENVIAR Y CONTINUAR</button>
     <p>Si ya es cliente Wonder,</p>
     <p> puede reclamar su bono aquí.</p>
     <button>QUIERO MI BONO</button>
@@ -69,11 +71,17 @@
         document.getElementById("registro").addEventListener("click", function () {
             validarSedeCali();
         });
-
+        document.getElementById("ciudad").addEventListener("change",function () {
+            mostrarLocales();
+        });
+        document.getElementById("localesCali").addEventListener("change",function () {
+            mostrardireccion();
+        });
+    
         function validarSedeCali() {
             var ciudad = document.getElementById("ciudad").value;
             var localesCali = document.getElementById("localesCali");
-
+    
             if (ciudad === "cali") {
                 var sedeCali = localesCali.value;
                 if (sedeCali === "nada") {
@@ -83,52 +91,115 @@
                     }, 3000);
                     alert("Por favor seleccione una sede en Cali.");
                     return;
-                }
+                } 
             }
             mostrarLocales();
         }
-
+        
         function mostrarLocales() {
-            var ciudad = document.getElementById("ciudad").value;
-            var locales = document.getElementById("locales");
-            var localesCali = document.getElementById("localesCali");
-            var sedeContenedor = document.getElementById("sedeContenedor");
-            var labelSede = document.getElementById("labelSede");
+    var ciudad = document.getElementById("ciudad").value;
+    var locales = document.getElementById("locales");
+    var localesCali = document.getElementById("localesCali");
+    var sedeContenedor = document.getElementById("sedeContenedor");
+    var labelSede = document.getElementById("labelSede");
+    var labelDireccion = document.getElementById("labelDireccion");
 
-            // Validar si se ha seleccionado una ciudad
-            if (ciudad === "nada") {
-                document.getElementById("ciudad").style.border = "3px solid red";
-                setTimeout(function () {
-                    document.getElementById("ciudad").style.border = "";
-                }, 3000);
-                alert("Por favor seleccione una ciudad.");
-                return;
-            }
+    // Validar si se ha seleccionado una ciudad
+    if (ciudad === "nada") {
+        document.getElementById("ciudad").style.border = "3px solid red";
+        setTimeout(function () {
+            document.getElementById("ciudad").style.border = "";
+        }, 3000);
+        alert("Por favor seleccione una ciudad.");
+        return;
+    }
 
-            if (ciudad === "cali") {
-                sedeContenedor.style.width = "100%";
-                sedeContenedor.style.display = "flex";
-                labelSede.style.display = "block";
-                locales.style.display = "none";
-                localesCali.style.display = "block";
+    if (ciudad === "cali") {
+        sedeContenedor.style.width = "100%";
+        sedeContenedor.style.display = "flex";
+        labelSede.style.display = "block";
+        labelDireccion.style.display = "none";
+        locales.style.display = "none";
 
-                // Mostrar el elemento localesCali
-                localesCali.style.display = "block";
-            } else if (ciudad === "bogota" || ciudad === "Barranquilla") {
-                labelSede.style.display = "none";
-                sedeContenedor.style.width = "0";
-                locales.style.display = "none";
-                localesCali.style.display = "none";
+        // Restablecer estilos para Cali y ocultar elementos de Barranquilla
+        localesCali.style.display = "block";  // Mostrar los locales de Cali
+        labelDireccion.style.display = "none";  // Ocultar la dirección de Barranquilla
+    } else if (ciudad === "bogota") {
+        labelDireccion.style.display = "block";
+        labelDireccion.innerHTML = "Cra. 15 # 100 - 76";
+        sedeContenedor.style.width = "0";
+        locales.style.display = "none";
+        labelSede.style.display = "none"; 
+        localesCali.style.display = "none";
+    } else if (ciudad === "Barranquilla") {
+        labelDireccion.innerHTML = "Mall plaza Buenavista. Cra 53 N0 99 - 148 Local A2073A";
+        sedeContenedor.style.display = "flex";
+        sedeContenedor.style.width = "0";
+        locales.style.display = "none";
+        localesCali.style.display = "none";
+
+        // Restablecer estilos para Barranquilla y ocultar elementos de Cali
+        labelDireccion.style.display = "block";  // Mostrar la dirección de Barranquilla
+        labelSede.style.display = "none";  // Ocultar el label de sede
+    } else {
+        sedeContenedor.style.width = "0";
+        labelSede.style.display = "flex";
+        locales.style.display = "flex";
+        localesCali.style.display = "none";
+        labelDireccion.style.display = "none";
+    }
+}
+
+        function mostrardireccion() {
+            var sedeCali = document.getElementById("localesCali").value;
+            var labelDireccion = document.getElementById("labelDireccion");
+    
+            if (sedeCali === "Intercontinental") {
+                labelDireccion.innerHTML = "Hotel Intercontinental. Av 1 oeste Nro 2-72";
+                labelDireccion.style.display = "block";
+            } else if (sedeCali === "Holguines") {
+                labelDireccion.innerHTML = "Holguines T.C. Cra. 100 #11-60";
+                labelDireccion.style.display = "block";
             } else {
-                sedeContenedor.style.width = "0";
-                labelSede.style.display = "flex";
-                locales.style.display = "flex";
-                localesCali.style.display = "none";
+                labelDireccion.style.display = "none";
             }
         }
     </script>
+    <script>
+        function guardarDatosUsuario() {
+            var ciudad = document.getElementById('ciudad').value;
+            var local = '';
+    
+            if (ciudad === 'Barranquilla') {
+                local = "Mall plaza";
+            } else if (ciudad === 'cali') {
+                local = document.getElementById('localesCali').value;
+            } else if (ciudad === 'bogota') {
+                local = "100 con 15";
+            } else {
+                local = document.getElementById('locales').value;
+            }
+    
+            // Obtener datosUsuario del localStorage y convertirlo a objeto JavaScript
+            var datosUsuario = JSON.parse(localStorage.getItem('datosUsuario')) || {};
+    
+            // Agregar la información de ciudad y local al objeto datosUsuario
+            datosUsuario.ciudad = ciudad;
+            datosUsuario.local = local;
+    
+            // Guardar el objeto datosUsuario actualizado en localStorage
+            localStorage.setItem('datosUsuario', JSON.stringify(datosUsuario));
+        }
+    
+        // Agregar event listener a los selects de ciudad y local para guardar los datos automáticamente
+        document.getElementById('ciudad').addEventListener('change', guardarDatosUsuario);
+        document.getElementById('localesCali').addEventListener('change', guardarDatosUsuario);
+        
+      
+        document.getElementById('locales').addEventListener('change', guardarDatosUsuario);
+    </script>
 
-
+<script src="javascript/form.js"></script>
 
 
 </body>

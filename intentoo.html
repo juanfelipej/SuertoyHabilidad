@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulta de Datos por Cédula</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background-color: #f4f4f4;
+    }
+
+    #consultaForm {
+      text-align: center;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      margin-bottom: 10px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    button[type="submit"] {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    #resultado {
+      margin-top: 20px;
+      text-align: center;
+    }
+    table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            padding: 45px;
+        }
+  </style>
+</head>
+<body>
+
+  <form id="consultaForm" action="https://script.google.com/macros/s/AKfycbxXkvs-DYzvoB2m5SWVv7j4glq8FMiW30c4y1LEj-G9GLIgAirE8qdbwMZQjMlcWtGIzg/exec" method="POST" onsubmit="return consultaDatos()">
+    <label for="cedula">Ingrese la cédula:</label>
+    <input type="text" id="cedula" name="cedula">
+    <button type="submit">Consultar</button>
+  </form>
+
+  <div id="resultado"></div>
+
+
+
+<script>
+    function consultaDatos() {
+      var form = document.getElementById("consultaForm");
+      var cedula = form.elements["cedula"].value;
+
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", form.action, true);
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          var datos = JSON.parse(xhr.responseText);
+          var tablaHTML = "<table><tr><th>Nombre</th><th>Cedula</th><th>Ciudad</th><th>Local</th></tr>";
+          tablaHTML += "<tr><td>" + datos.nombre + "</td><td>" + datos.cedula + "</td><td>" + datos.ciudad + "</td><td>" + datos.local + "</td></tr>";
+          tablaHTML += "</table>";
+          document.getElementById("resultado").innerHTML = tablaHTML;
+        } else {
+          console.error("Error al realizar la consulta.");
+        }
+      };
+
+      xhr.send("cedula=" + encodeURIComponent(cedula));
+      return false; // Evitar que el formulario se envíe normalmente
+    }
+  </script>
+
+</body>
+</html>

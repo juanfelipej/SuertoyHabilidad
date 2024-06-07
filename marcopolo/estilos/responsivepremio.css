@@ -4,7 +4,7 @@
 
     body {
       height: auto;
-      padding: 48px 0;
+      padding: 50px 0;
       background-size: cover;
     }
     
@@ -13,7 +13,7 @@
 
     body {
         height: auto;
-        padding: 50px 0;
+        padding: 82px 0;
         background-size: cover;
     }
     .logos {
@@ -21,7 +21,7 @@
         margin: 4px;
     }
     p {
-        font-size: 15px;
+        font-size: 13px;
         margin: -2px;
     }
     .h2Mtop {
@@ -34,7 +34,7 @@
 
     body {
         height: auto;
-        padding: 24px 0;
+        padding: 61px 0;
         background-size: cover;
     }
     
