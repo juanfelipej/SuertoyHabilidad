@@ -92,10 +92,14 @@
       xhr.onload = function () {
         if (xhr.status === 200) {
           var datos = JSON.parse(xhr.responseText);
-          var tablaHTML = "<table><tr><th>Nombre</th><th>Cedula</th><th>Ciudad</th><th>Local</th></tr>";
-          tablaHTML += "<tr><td>" + datos.nombre + "</td><td>" + datos.cedula + "</td><td>" + datos.ciudad + "</td><td>" + datos.local + "</td></tr>";
-          tablaHTML += "</table>";
-          document.getElementById("resultado").innerHTML = tablaHTML;
+          if (datos.nombre !== undefined) {
+            var tablaHTML = "<table><tr><th>Nombre</th><th>Cedula</th><th>Ciudad</th><th>Local</th></tr>";
+            tablaHTML += "<tr><td>" + datos.nombre + "</td><td>" + datos.cedula + "</td><td>" + datos.ciudad + "</td><td>" + datos.local + "</td></tr>";
+            tablaHTML += "</table>";
+            document.getElementById("resultado").innerHTML = tablaHTML;
+          } else {
+            document.getElementById("resultado").innerText = "Lo siento, el documento no está inscrito.";
+          }
         } else {
           console.error("Error al realizar la consulta.");
         }
